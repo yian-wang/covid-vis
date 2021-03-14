@@ -12,5 +12,7 @@ The purpose of this project is to visualize the COVID-19 cases in Toronto, Ontar
 * R (tidyverse, dplyr)
 * Jupyter
 
+## Visualizations
+
 ## Data Source
 The data is obtained from the City of Toronto's Open Data resource. 
