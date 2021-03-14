@@ -1,8 +1,8 @@
 ---
 output:
+  pdf_document: default
   html_document:
     df_print: paged
-  pdf_document: default
 urlcolor: blue
 header-includes:
 - \usepackage{lastpage}
@@ -61,7 +61,7 @@ saveRDS(nbhood_profile, "data/neighbourhood_profile.Rds")
 
 # Load the COVID data downloaded from Toronto City
 
-daily_data <- "CityofToronto_COVID-19_Daily_Public_Reporting.xlsx"
+daily_data <- "data/CityofToronto_COVID-19_Daily_Public_Reporting.xlsx"
 
 # Cases reported by date
 reported_raw <- read_excel(daily_data, sheet = 5) %>% 
@@ -76,7 +76,7 @@ date_daily <- read_excel(daily_data, sheet = 1) %>%
   clean_names()
 
 # By neighbourhood
-neighbourood_data <- "CityofToronto_COVID-19_NeighbourhoodData.xlsx"
+neighbourood_data <- "data/CityofToronto_COVID-19_NeighbourhoodData.xlsx"
 
 # Cases reported by date
 nbhood_raw <- read_excel(neighbourood_data, sheet = 2) %>% 
@@ -286,7 +286,7 @@ ggplot(data = nbhoods_final) +
 ggplot(data = nbhoods_final) +
   geom_sf(aes(fill = nbhood_type)) +
   theme_map() +
-  labs(title = "COVID-19 cases per 100,000, by neighbourhood in Toronto, Canada", 
+  labs(title = "COVID−19 cases and low-income status by neighbourhood in Toronto, Canada", 
        caption = str_c("Created by: Yian Wang \n Source: ",
                        "Ontario Ministry of Health, Integrated Public Health ",
                        "Information System and CORES\n", date_daily[1,1])) +
